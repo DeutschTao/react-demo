@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import storage from '../model/Storage';
 import Header from './Header';
+import { Link } from 'react-router-dom';
+
 class Plan extends Component{
     constructor(props){
         super(props)
@@ -11,6 +13,13 @@ class Plan extends Component{
                 {type:'看书', checked: false},
                 {type:'听歌', checked: true},
                 {type:'看电影', checked: false}
+            ],
+            planList: [
+                {aId: 1, content: '规划1'},
+                {aId: 2, content: '规划2'},
+                {aId: 3, content: '规划3'},
+                {aId: 4, content: '规划4'},
+                {aId: 5, content: '规划5'},
             ]
         }
     }
@@ -89,6 +98,15 @@ class Plan extends Component{
                         })
                     }
                 </ul>
+                <div>
+                    <ul>
+                        {this.state.planList.map((value ,key) => {
+                            return (<li key={key}>
+                                <Link to={`/planContent?aId=${value.aId}`}>{value.content}</Link>
+                            </li>)
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }

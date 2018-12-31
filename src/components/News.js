@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../assets/css/News.css'
 import Header from './Header'
+import { Link } from 'react-router-dom';
 
 class News extends Component {
     constructor(props) {
@@ -8,7 +9,14 @@ class News extends Component {
         console.log('01构造函数')
         this.state = {
             listName: '新闻传给头部子组件的列表名',
-            color: 'red'
+            color: 'red',
+            list: [
+                {aId: 1, content: '新闻1'},
+                {aId: 2, content: '新闻2'},
+                {aId: 3, content: '新闻3'},
+                {aId: 4, content: '新闻4'},
+                {aId: 5, content: '新闻5'},
+            ]
         }
     }
     componentWillMount(){
@@ -49,6 +57,11 @@ class News extends Component {
                 <li>列表1</li> */}
                 <button onClick={this.update}>更新</button>
                 <button onClick={this.getSon}>获取子组件</button>
+                {this.state.list.map((value ,key) => {
+                    return (<li key={key}>
+                        <Link to={`/newsContent/${value.aId}`}>{value.content}</Link>
+                    </li>)
+                })}
             </ul>
         )
     }

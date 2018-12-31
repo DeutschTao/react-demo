@@ -52,8 +52,8 @@ class Home extends Component{
               <input id="name" type="text" defaultValue={this.state.name} onChange={this.changeName.bind(this)}/>
               <input id="name" type="text" defaultValue={this.state.name} ref="input" onChange={this.changeInput}/>
               <hr />
-              <img src={img1} alt="de"/>
-              <img src={require('../assets/images/1.jpg')} alt="de"/>
+              {/* <img src={img1} alt="de"/> */}
+              {/* <img src={require('../assets/images/1.jpg')} alt="de"/> */}
               <ul>
                   {this.state.list2}
               </ul>
